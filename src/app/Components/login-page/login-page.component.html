@@ -1,0 +1,29 @@
+<h1>Welcome</h1>
+<p *ngIf="loginError" class="error">Invalid username or password</p>
+<div >
+    <form>
+        <div class="field">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter username/email</mat-label>
+                <input matInput type="email" matInput [(ngModel)]="enteredUsername" name="username" required color="warn">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+        </div>
+<br>
+        <div class="field">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input matInput type="password" id="password" [(ngModel)]="enteredPassword" name="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>                                                           
+        </div>
+    <br>
+        <div class="login">
+                <button mat-raised-button  (click)="login()">Login</button>
+        </div>
+        
+    </form>
+    
+</div>

@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="field">
+    <mat-form-field class="dropdown">
+        <mat-label>Select Country</mat-label>
+        <mat-select [(value)]="selectedCountry" (ngModelChange)="onCountryChange()" matTooltip="select country" [(ngModel)]="selectedCountry">
+        <mat-option *ngFor="let country of countries" [value]="country">{{ country.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+  <mat-form-field class="dropdown">
+    <mat-label>Select State</mat-label>
+    <mat-select [(value)]="selectedState" (ngModelChange)="onStateChange()" matTooltip="select state" [(ngModel)]="selectedState" >
+      <mat-option *ngFor="let state of selectedCountry?.states" [value]="state" >
+        {{ state.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="dropdown">
+    <mat-label>Select City</mat-label>
+    <mat-select [(value)]="selectedCity" matTooltip="select city" [(ngModel)]="selectedCity">
+      <mat-option *ngFor="let city of selectedState?.cities" [value]="city">
+          {{ city }}        
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
