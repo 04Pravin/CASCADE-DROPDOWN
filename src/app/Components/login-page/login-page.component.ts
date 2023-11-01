@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { HomePageComponent } from '../home-page/home-page.component';
 
 @Component({
   selector: 'app-login-page',
@@ -21,7 +23,7 @@ export class LoginPageComponent {
     }
   ];
 
-  constructor(private _router:Router){}
+  constructor(private _router:Router, private _snackBar: MatSnackBar){}
 
   enteredUsername: any;
   enteredPassword!: string;
@@ -33,6 +35,7 @@ export class LoginPageComponent {
     if (user && user.password === this.enteredPassword) {
       this.userName = this.enteredUsername;
       this._router.navigate(['/home']);
+      this._snackBar.open('Login successful!', 'Close', {duration: 2000});
     } else {
       this.loginError = true;
     }

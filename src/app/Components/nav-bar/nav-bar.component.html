@@ -1,5 +1,9 @@
 <mat-toolbar>
-    <mat-toolbar-row>
-        <span>Cascade dropdown</span>
-      </mat-toolbar-row>
+    <div>
+      <span>Cascade dropdown</span>
+    </div>
+    <span class="filler"></span>
+    <div class="logout">
+      <mat-icon (click)="logOut()" matTooltip="Log out">logout</mat-icon>
+    </div>
 </mat-toolbar>
