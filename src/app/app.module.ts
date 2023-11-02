@@ -8,13 +8,15 @@ import { MaterialsModule } from './Modules/materials/materials.module';
 import { LoginPageComponent } from './Components/login-page/login-page.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { NewUserComponent } from './Components/new-user/new-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    NavBarComponent
+    NavBarComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

@@ -19,32 +19,8 @@ h1{
     color: aliceblue;
 }
 
-.login{
+.register{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.login:hover{
-    transform: scale(1.08);
-}
-
-.error{
-    color: red;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.newUser{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.newUser:hover{
-    color: deepskyblue;
-    transform: scale(1.08);
 }

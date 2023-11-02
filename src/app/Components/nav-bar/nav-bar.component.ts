@@ -8,14 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit{
 
-  @Input() userName!:string;
+  userName!:string;
 
   constructor(private _activeRoute:ActivatedRoute, private _router:Router){}
   ngOnInit(): void {
-    // this._activeRoute.queryParams.subscribe(params => {
-    //   this.userName = params['enteredUsername'];
-    // });
-    console.log(this.userName);
+    
   }
 
   logOut(){

@@ -1,0 +1,31 @@
+<h1>New Registration</h1>
+<form>
+
+    <div class="field">
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your username</mat-label>
+            <input matInput type="email" matInput [(ngModel)]="username" name="userName" required color="warn">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="field">
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" name="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>                                                           
+    </div>
+
+    <div class="field">
+        <mat-form-field appearance="outline">
+            <mat-label>Re-enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" name="password" required>
+            
+        </mat-form-field>                                                           
+    </div>
+    <div class="register">
+        <button mat-raised-button  (click)="create()" mat-stroked-button>Register</button>
+</div>
+</form>

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { HomePageComponent } from '../home-page/home-page.component';
+import { UserDataService } from 'src/app/Service/user-data.service';
+import { User } from 'src/app/Model/user';
 
 @Component({
   selector: 'app-login-page',
@@ -12,26 +14,31 @@ export class LoginPageComponent {
   
   hide = true;
 
-  users = [
-    {
-      username:'Pravin',
-      password:'123'
-    },
-    {
-      username:'Dinesh',
-      password:'abc'
-    }
-  ];
-
-  constructor(private _router:Router, private _snackBar: MatSnackBar){}
+  constructor(private _userDataService:UserDataService,private _router:Router, private _snackBar: MatSnackBar){}
 
   enteredUsername: any;
   enteredPassword!: string;
   loginError = false;
   userName!:string;
+  userData: any[] = [];
 
   login() {
-    const user = this.users.find(u => u.username === this.enteredUsername);
+
+    const users = [
+      {
+        username:'Pravin',
+        password:'123'
+      },
+      {
+        username:'Dinesh',
+        password:'abc'
+      }
+    ];
+    
+    this._userDataService.setUserData(users);
+
+    this.userData = this._userDataService.getUserData();
+    const user = this.userData.find(u => u.username === this.enteredUsername);
     if (user && user.password === this.enteredPassword) {
       this.userName = this.enteredUsername;
       this._router.navigate(['/home']);
@@ -39,6 +46,10 @@ export class LoginPageComponent {
     } else {
       this.loginError = true;
     }
+  }
+
+  newUser(){
+    this._router.navigate(['newUser']);
   }
 
 }

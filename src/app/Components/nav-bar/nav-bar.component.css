@@ -8,4 +8,5 @@ mat-toolbar{
 
 .logout:hover{
     color: red;
+    transform: scale(1.08);
 }
